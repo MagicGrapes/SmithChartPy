@@ -4,6 +4,12 @@ Author: Joel Rieger
 October 29, 2016
 
 Description: Smith Chart matching tool
+
+Modifier: liubingkui
+
+July 3,2 019
+
+Description: you can use it in python3
 """
 
 from plot_funcs import *
@@ -18,7 +24,7 @@ from numpy import arange, sin, pi
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg#, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 
-import Tkinter as Tk
+import tkinter as Tk
 
 
 class MainWindow(Tk.Frame):
@@ -134,7 +140,7 @@ class MainWindow(Tk.Frame):
 
 
     def test(self,event):
-        print "OK"
+        print("OK")
         
     def edit_element(self):
         pass
@@ -196,7 +202,7 @@ class MainWindow(Tk.Frame):
             vsfreq_curve.append([gam.real,gam.imag])
 
         #print vsfreq_curve
-        vsfreq_curve=zip(*vsfreq_curve)
+        vsfreq_curve=list(zip(*vsfreq_curve))
         self.vsfreq_curves.extend(self.mainplot.plot(vsfreq_curve[0],vsfreq_curve[1],lw=2,color='k',linestyle='--'))
 
         
@@ -210,6 +216,20 @@ class MainWindow(Tk.Frame):
 
 
         self.pltcanvas.draw()
+
+
+if __name__=='__main__':
+
+    print("OK")
+
+    
+    root=Tk.Tk()
+    root.configure(background='white')
+    root.wm_title("Impedance Matching Tool")
+    
+    a=MainWindow(root)
+    root.mainloop()
+
 
 
 if __name__=='__main__':
