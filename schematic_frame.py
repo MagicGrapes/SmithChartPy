@@ -6,7 +6,7 @@ October 29, 2016
 Description: Schematic frame for Smith Chart matching tool
 """
 
-import Tkinter as Tk
+import tkinter as Tk
 
 class manual_event(object):
     def __init__(x,y):
@@ -223,12 +223,12 @@ if __name__=='__main__':
         def __init__(self):
             pass
         def update_slider(self,values={}):
-            print values
+            print (values)
         def draw_plot(self):
             pass
-            #print "draw_plot() called"
+            #print ("draw_plot() called")
         def update_slider_position(self):
-            print "update_slider_position() called"
+            print ("update_slider_position() called")
 
 
     class MainWindow(Tk.Frame):
@@ -238,7 +238,7 @@ if __name__=='__main__':
     net=network()
     slide=slider()
     def draw_plot():
-            print "draw_plot() called"
+            print ("draw_plot() called")
 
     root = Tk.Tk()
     

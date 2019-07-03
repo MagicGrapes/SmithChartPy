@@ -33,7 +33,7 @@ class network(object):
 
     def print_net(self):
         for elem in self.element_array:
-            print elem.name, elem.val
+            print(elem.name, elem.val)
 
     def move_element(self,n_a,n_b):
         """
@@ -52,7 +52,7 @@ class element(object):
         self.orientation=0
         self.default=''
         
-        if kargs.has_key('shunt'):
+        if 'shunt'in kargs:
             self.orientation=kargs['shunt'] # 0: Series, 1:Shunt
         self.val={}
 
@@ -100,7 +100,7 @@ class cap(element):
         self.val['unit']='pF' #Unit not used to scale value variable
                 
         if len(args)!=1:
-            print "ERROR: cap(element) requires 1 argument"
+            print("ERROR: cap(element) requires 1 argument")
         else:
             self.val[self.default]=args[0]
 
@@ -135,7 +135,7 @@ class ind(element):
         self.val['unit']='nH' #Unit not used to scale value variable
         
         if len(args)!=1:
-            print "ERROR: ind(element) requires 1 argument"
+            print("ERROR: ind(element) requires 1 argument")
         else:
             self.val['L']=args[0]
 
@@ -151,7 +151,7 @@ class indQ(element):
         self.name='indQ'
 
         if len(args)!=2:
-            print "ERROR: indQ(element) requires 2 arguments"
+            print("ERROR: indQ(element) requires 2 arguments")
         else:
             self.val['L']=args[0]
             self.val['Q']=args[1]
@@ -170,7 +170,7 @@ class capQ(element):
         self.name='capQ'
         
         if len(args)!=2:
-            print "ERROR: capQ(element) requires 2 arguments"
+            print("ERROR: capQ(element) requires 2 arguments")
         else:
             self.val['C']=args[0]
             self.val['Q']=args[1]
@@ -197,6 +197,6 @@ if __name__=='__main__':
     net.element_array.append(C1)
     net.element_array.append(L1)
 
-    print net.compute_node_impedances(2.0e9)
+    print(net.compute_node_impedances(2.0e9))
     
     
